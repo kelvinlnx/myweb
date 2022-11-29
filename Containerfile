@@ -12,4 +12,6 @@ RUN yum install -y httpd; \
 
 ADD ./src/* /var/www/html
 
+USER apache
+
 ENTRYPOINT ["httpd","-DFOREGROUND"]
