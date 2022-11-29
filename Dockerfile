@@ -8,12 +8,10 @@ ENV MSG="Hi" VALUE1=100
 
 RUN yum install -y httpd; \
     yum clean all; \
-    sed -i 's/^Listen 80 *$/Listen 8080/' /etc/httpd/conf/httpd.conf; \
-    chmod -R g=u /var/log/httpd; \
-    chmod -R g=u /run
+    sed -i 's/^Listen 80 *$/Listen 8080/' /etc/httpd/conf/httpd.conf
 
 ADD ./src/* /var/www/html
 
-USER apache
+#USER apache
 
 ENTRYPOINT ["httpd","-DFOREGROUND"]
