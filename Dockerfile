@@ -12,6 +12,9 @@ RUN yum install -y httpd; \
 
 ADD ./src/* /var/www/html
 
+# Apache doesn't need the USER. The server MUST be started as root
+# which will then be auto switched to the "apache" user specified in the
+# /etc/httpd/conf/httpd.conf
 #USER apache
 
 ENTRYPOINT ["httpd","-DFOREGROUND"]
