@@ -10,7 +10,7 @@ RUN yum install -y httpd; \
     yum clean all; \
     sed -i 's/^Listen 80 *$/Listen 8080/' /etc/httpd/conf/httpd.conf; \
     chgrp -R 0 /var/log/httpd /var/run/httpd; \
-    chown -R g=u /var/log/httpd /var/run/httpd
+    chmod -R g=u /var/log/httpd /var/run/httpd
 
 ADD ./src/* /var/www/html
 
