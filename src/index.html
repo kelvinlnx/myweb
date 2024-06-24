@@ -1,1 +1,14 @@
-Hello World
+<HTML>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <script>
+        const hostname = window.location.hostname;
+        console.log("Hostname:", hostname);
+        document.body.innerHTML = `<p>Welcome to ${hostname}</p>`;
+    </script>
+</body>
+</HTML>Hello World
