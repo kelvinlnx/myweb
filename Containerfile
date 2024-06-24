@@ -2,6 +2,8 @@ FROM registry.access.redhat.com/ubi8/ubi:latest
 
 MAINTAINER The Great Student <student@example.com>
 
+LABLE io.openshift.expose-services="8080/tcp"
+
 EXPOSE 8080
 
 ENV MSG="Hi" VALUE1=100
