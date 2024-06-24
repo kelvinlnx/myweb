@@ -8,14 +8,11 @@ EXPOSE 8080
 
 ENV MSG="Hi" VALUE1=100
 
-ADD ./bin/* /usr/local/bin
-
 RUN yum install -y httpd; \
     yum clean all; \
     sed -i 's/^Listen 80 *$/Listen 8080/' /etc/httpd/conf/httpd.conf; \
     chgrp -R 0 /var/log/httpd /var/run/httpd; \
-    chmod -R g=u /var/log/httpd /var/run/httpd; \
-    chmod 755 /usr/local/bin/startup
+    chmod -R g=u /var/log/httpd /var/run/httpd
 
 ADD ./src/* /var/www/html
 
@@ -24,5 +21,4 @@ ADD ./src/* /var/www/html
 # /etc/httpd/conf/httpd.conf
 #USER apache
 
-#ENTRYPOINT ["httpd","-DFOREGROUND"]
-ENTRYPOINT ["/usr/local/bin/startup"]
+ENTRYPOINT ["httpd","-DFOREGROUND"]
