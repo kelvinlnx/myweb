@@ -1,0 +1,4 @@
+#!/bin/bash
+
+grep "$(hostname)" /var/www/html/index.html || echo "Welcome to $(hostname)" >> /var/www/html/index.html
+httpd -DFOREGROUND
